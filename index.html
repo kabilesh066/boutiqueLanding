@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurelle Couture - Custom Fashion Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0a0a12;
+            --primary-light: #141422;
+            --accent-pink: #ff2d78;
+            --accent-cyan: #00ffcc;
+            --accent-yellow: #ffe04a;
+            --text-light: #e8e0f0;
+            --text-muted: #a098b0;
+            --border-color: #302840;
+            --success-color: #00ffcc;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+            background-color: var(--primary-dark);
+            overflow-x: hidden;
+        }
+
+        /* ==================== NAVIGATION BAR ==================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            background: rgba(15, 15, 26, 0.8);
+            border-bottom: 1px solid rgba(255, 45, 120, 0.2);
+            box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.5);
+            height: 75px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav .logo {
+            font-family: 'Sora', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-pink);
+            letter-spacing: -1.2px;
+            text-transform: uppercase;
+            filter: drop-shadow(0px 0px 4px rgba(255, 45, 120, 0.6));
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            list-style: none;
+        }
+
+        nav .nav-links a {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--accent-pink);
+        }
+
+        nav .nav-buttons {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        nav .btn-nav {
+            background-color: rgba(255, 45, 120, 0.1);
+            color: var(--accent-pink);
+            padding: 9px 25px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid var(--accent-pink);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        nav .btn-nav:hover {
+            background-color: var(--accent-pink);
+            color: var(--primary-dark);
+        }
+
+        nav .social-icons {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        nav .social-icons img {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        nav .social-icons img:hover {
+            opacity: 1;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            margin-top: 75px;
+            padding: 116.5px 32px;
+            background: linear-gradient(135deg, rgba(255, 45, 120, 0) 0%, rgba(255, 45, 120, 0.05) 50%, rgba(0, 255, 204, 0) 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 920px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 10, 18, 0.6) 50%, #0a0a12 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1024px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 96px;
+            font-weight: 800;
+            line-height: 1;
+            color: var(--text-light);
+            letter-spacing: -2.4px;
+            margin-bottom: 0;
+        }
+
+        .hero h1 .highlight-pink {
+            color: var(--accent-pink);
+        }
+
+        .hero h1 .highlight-cyan {
+            color: var(--accent-cyan);
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            max-width: 672px;
+            margin-bottom: 16px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'Sora', sans-serif;
+            text-transform: none;
+            letter-spacing: -0.4px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-pink);
+            color: #1a0010;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(255, 45, 120, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 255, 204, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .tag {
+            background-color: rgba(255, 45, 120, 0.05);
+            border: 1px solid rgba(255, 45, 120, 0.3);
+            padding: 9px 17px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--accent-pink);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .tag.cyan {
+            background-color: rgba(0, 255, 204, 0.05);
+            border-color: rgba(0, 255, 204, 0.3);
+            color: var(--accent-cyan);
+        }
+
+        .tag.yellow {
+            background-color: rgba(255, 224, 74, 0.05);
+            border-color: rgba(255, 224, 74, 0.3);
+            color: var(--accent-yellow);
+        }
+
+        .tag.neutral {
+            background-color: var(--primary-light);
+            border-color: rgba(90, 80, 104, 0.3);
+            color: var(--text-muted);
+        }
+
+        /* ==================== CLOTHING INFO SECTION ==================== */
+        .clothing-info {
+            background-color: var(--primary-dark);
+            padding: 96px 32px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .clothing-info-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .clothing-left h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .clothing-left h2 .highlight {
+            color: var(--accent-cyan);
+        }
+
+        .clothing-left p {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 24px;
+            max-width: 512px;
+        }
+
+        .clothing-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        .feature-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feature-group h4 {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-pink);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .feature-group.cyan h4 {
+            color: var(--accent-cyan);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .feature-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 2px;
+            background-color: var(--accent-pink);
+            flex-shrink: 0;
+        }
+
+        .feature-group.cyan .feature-dot {
+            background-color: var(--accent-cyan);
+        }
+
+        .clothing-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .feature-card {
+            background-color: var(--primary-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card.featured {
+            border-color: rgba(255, 45, 120, 0.5);
+            box-shadow: inset 0px 0px 12px 0px rgba(255, 45, 120, 0.1);
+        }
+
+        .feature-card.featured-cyan {
+            border-color: rgba(0, 255, 204, 0.3);
+            box-shadow: inset 0px 0px 12px 0px rgba(0, 255, 204, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-pink);
+        }
+
+        .feature-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+
+        .feature-card p {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        .feature-card img {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 4px;
+        }
+
+        /* ==================== HOW IT WORKS ==================== */
+        .journey {
+            background-color: #0a0a12;
+            padding: 96px 32px;
+        }
+
+        .journey-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .journey-header {
+            text-align: center;
+        }
+
+        .journey-header h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .journey-header h2 .highlight {
+            color: var(--accent-pink);
+        }
+
+        .journey-line {
+            height: 4px;
+            width: 96px;
+            background-color: var(--accent-pink);
+            margin: 0 auto;
+        }
+
+        .journey-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            position: relative;
+        }
+
+        .journey-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: var(--border-color);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            background-color: var(--primary-light);
+            border: 2px solid var(--accent-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Sora', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-pink);
+            margin-bottom: 24px;
+        }
+
+        .step:nth-child(2) .step-number,
+        .step:nth-child(4) .step-number {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .step h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* ==================== FORM SECTION ==================== */
+        .form-section {
+            background-color: var(--primary-dark);
+            padding: 96px 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            max-width: 896px;
+            width: 100%;
+            background-color: var(--primary-light);
+            border: 1px solid rgba(48, 40, 64, 0.3);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 128px;
+            height: 128px;
+            background: rgba(255, 45, 120, 0.1);
+            filter: blur(40px);
+            border-radius: 50%;
+        }
+
+        .form-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 128px;
+            height: 128px;
+            background: rgba(0, 255, 204, 0.1);
+            filter: blur(40px);
+            border-radius: 50%;
+        }
+
+        .form-content {
+            padding: 49px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .form-header h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .form-header h2 .highlight {
+            color: var(--accent-pink);
+        }
+
+        .form-header p {
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 15px 13px;
+            background-color: #0a0a12;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group select,
+        .form-group textarea::placeholder {
+            color: #6b7280;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 0 3px rgba(255, 45, 120, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 128px;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23a098b0' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 35px;
+        }
+
+        .btn-submit {
+            background-color: var(--accent-pink);
+            color: #1a0010;
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-family: 'Sora', sans-serif;
+            text-transform: none;
+            letter-spacing: -0.4px;
+        }
+
+        .btn-submit:hover {
+            background-color: #ff1e6f;
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            background-color: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: rgba(0, 255, 204, 0.2);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: rgba(255, 45, 120, 0.2);
+            color: var(--accent-pink);
+            border: 1px solid rgba(255, 45, 120, 0.3);
+            display: block;
+        }
+
+        /* ==================== REVIEWS SECTION ==================== */
+        .reviews {
+            background-color: #111118;
+            padding: 96px 32px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .reviews-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .reviews-header h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .reviews-header h2 .highlight {
+            color: var(--accent-cyan);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .review-card {
+            background-color: #0f0f1a;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 33px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-pink);
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .star {
+            width: 20px;
+            height: 19px;
+            color: var(--accent-yellow);
+        }
+
+        .review-text {
+            font-size: 16px;
+            color: var(--text-light);
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .review-author {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding-top: 25px;
+            border-top: 1px solid rgba(48, 40, 64, 0.3);
+            margin-top: 32px;
+        }
+
+        .review-author-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-pink);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .review-card:nth-child(2) .review-author-title {
+            color: var(--accent-cyan);
+        }
+
+        .review-card:nth-child(4) .review-author-title {
+            color: var(--accent-cyan);
+        }
+
+        /* ==================== FAQ SECTION ==================== */
+        .faq {
+            background-color: var(--primary-dark);
+            padding: 96px 32px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .faq-container {
+            max-width: 896px;
+            width: 100%;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .faq-header h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .faq-header h2 .highlight {
+            color: var(--accent-yellow);
+        }
+
+        .faq-items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .faq-item {
+            background-color: var(--primary-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(255, 45, 120, 0.05);
+        }
+
+        .faq-question h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .faq-icon {
+            width: 12px;
+            height: 7.4px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-top: 1px solid rgba(48, 40, 64, 0.3);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 24px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background-color: var(--primary-dark);
+            border-top: 1px solid rgba(48, 40, 64, 0.3);
+            padding: 64px 32px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 16px;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 22.8px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            line-height: 1.5;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-pink);
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .footer-logo {
+            font-family: 'Sora', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-pink);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            margin-top: 22.8px;
+        }
+
+        .footer-social img {
+            width: 20px;
+            height: 20px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-social img:hover {
+            opacity: 1;
+        }
+
+        .footer-cta {
+            border: 1px solid var(--accent-pink);
+            padding: 17px;
+            text-align: center;
+            color: var(--accent-pink);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: -0.35px;
+            background-color: transparent;
+            border-radius: 0;
+        }
+
+        .footer-cta:hover {
+            background-color: var(--accent-pink);
+            color: #1a0010;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(48, 40, 64, 0.3);
+            padding-top: 49px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-bottom-links a {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--accent-pink);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .clothing-info-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .journey-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .journey-steps::before {
+                display: none;
+            }
+
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 64px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav .nav-links {
+                display: none;
+            }
+
+            nav .container {
+                padding: 0 16px;
+            }
+
+            nav .logo {
+                font-size: 18px;
+            }
+
+            nav .btn-nav {
+                padding: 8px 16px;
+                font-size: 10px;
+            }
+
+            nav .social-icons {
+                gap: 12px;
+            }
+
+            .hero {
+                padding: 80px 16px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .clothing-info,
+            .journey,
+            .reviews,
+            .faq,
+            footer {
+                padding: 64px 16px;
+            }
+
+            .clothing-left h2 {
+                font-size: 32px;
+            }
+
+            .clothing-features {
+                grid-template-columns: 1fr;
+            }
+
+            .clothing-right {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-header h2,
+            .reviews-header h2,
+            .faq-header h2 {
+                font-size: 28px;
+            }
+
+            .form-content {
+                padding: 32px 16px;
+            }
+
+            .form-header h2 {
+                font-size: 24px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero,
+        .clothing-info,
+        .journey,
+        .form-section,
+        .reviews,
+        .faq {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">AURELLE COUTURE</div>
+            <ul class="nav-links">
+                <li><a href="#collections">COLLECTIONS</a></li>
+                <li><a href="#bespoke">BESPOKE</a></li>
+                <li><a href="#atelier">ATELIER</a></li>
+                <li><a href="#showroom">SHOWROOM</a></li>
+                <li><a href="#archive">ARCHIVE</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="document.getElementById('form-section').scrollIntoView({behavior: 'smooth'})">BOOK APPOINTMENT</button>
+                <div class="social-icons">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23a098b0' stroke-width='2'%3E%3Cpath d='M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7'/%3E%3C/svg%3E" alt="Twitter">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='20' viewBox='0 0 24 24' fill='none' stroke='%23a098b0' stroke-width='2'%3E%3Cpath d='M18 2h-3a6 6 0 00-6 6v4a6 6 0 006 6h3m0-13v-4m0 13v4'/%3E%3C/svg%3E" alt="Pinterest">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Designed Around<br>
+                <span class="highlight-pink">You.</span><br>
+                Styled To Be<br>
+                <span class="highlight-cyan">Remembered.</span>
+            </h1>
+            <p class="hero-description">
+                From custom-designed dresses to statement accessories, we create<br>
+                pieces that fit your body, your personality, and your aesthetic<br>
+                perfectly.
+            </p>
+            <div class="hero-cta">
+                <button class="btn btn-primary">Book a Custom Consultation</button>
+                <button class="btn btn-secondary">Design My Outfit</button>
+            </div>
+            <div class="hero-tags">
+                <div class="tag">CUSTOM MEASUREMENTS</div>
+                <div class="tag cyan">INFLUENCER STYLING</div>
+                <div class="tag yellow">HANDCRAFTED ACCESSORIES</div>
+                <div class="tag neutral">PREMIUM FABRICS</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clothing Information Section -->
+    <section class="clothing-info">
+        <div class="clothing-info-container">
+            <div class="clothing-left">
+                <h2>Create Your Outfit,<br><span class="highlight">Your Way</span></h2>
+                <p>Every outfit is tailored with precision and designed exclusively for you. Share your preferences, measurements, inspiration, and styling needs — and we'll handle the rest.</p>
+                
+                <div class="clothing-features">
+                    <div class="feature-group">
+                        <h4>STYLES</h4>
+                        <div class="feature-item"><div class="feature-dot"></div> Indo-Western</div>
+                        <div class="feature-item"><div class="feature-dot"></div> Contemporary Ethnic</div>
+                        <div class="feature-item"><div class="feature-dot"></div> Luxury Party Wear</div>
+                        <div class="feature-item"><div class="feature-dot"></div> Minimal Elegant</div>
+                    </div>
+                    <div class="feature-group cyan">
+                        <h4>FABRICS</h4>
+                        <div class="feature-item"><div class="feature-dot"></div> Satin & Organza</div>
+                        <div class="feature-item"><div class="feature-dot"></div> Silk & Velvet</div>
+                        <div class="feature-item"><div class="feature-dot"></div> Georgette & Linen</div>
+                        <div class="feature-item"><div class="feature-dot"></div> Premium Blends</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clothing-right">
+                <div class="feature-card featured">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 24 24' fill='%23ff2d78'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z'/%3E%3C/svg%3E" alt="">
+                    <h3>Precision Fit</h3>
+                    <p>Bespoke measurements for a flawless silhouette.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%23a098b0' stroke-width='2'%3E%3Cpath d='M6 9l6 6 8-8'/%3E%3C/svg%3E" alt="">
+                    <h3>Accessories</h3>
+                    <p>Bags, belts, and jewelry handcrafted to match.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='18' viewBox='0 0 24 24' fill='none' stroke='%23a098b0' stroke-width='2'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E" alt="">
+                    <h3>Original Art</h3>
+                    <p>Unique patterns and hand-embroidered details.</p>
+                </div>
+                <div class="feature-card featured-cyan">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='20' viewBox='0 0 24 24' fill='%2300ffcc'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z'/%3E%3C/svg%3E" alt="">
+                    <h3>VIP Service</h3>
+                    <p>Dedicated styling support for every event.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="journey">
+        <div class="journey-container">
+            <div class="journey-header">
+                <h2>The Aurelle <span class="highlight">Journey</span></h2>
+                <div class="journey-line"></div>
+            </div>
+
+            <div class="journey-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Share Your Vision</h3>
+                    <p>References, Pinterest inspirations, or event details.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Measurements</h3>
+                    <p>Guided sizing and digital styling session.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Design & Craft</h3>
+                    <p>Handcrafted with premium tailoring and detailing.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Final Delivery</h3>
+                    <p>Perfectly tailored outfit delivered to your door.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="form-section">
+        <div class="form-container">
+            <div class="form-content">
+                <div class="form-header">
+                    <h2>Let's Design Something <span class="highlight">Beautiful</span> Together</h2>
+                    <p>Every design consultation is personalized based on your style, body fit, and occasion.</p>
+                </div>
+
+                <form id="designForm" onsubmit="submitForm(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">FULL NAME</label>
+                            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">PHONE NUMBER</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 000 000 0000" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">EMAIL ADDRESS</label>
+                            <input type="email" id="email" name="email" placeholder="hello@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="occasion">OCCASION TYPE</label>
+                            <select id="occasion" name="occasionType" required>
+                                <option value="">Select an occasion</option>
+                                <option value="Wedding Event">Wedding Event</option>
+                                <option value="Engagement">Engagement</option>
+                                <option value="Party Wear">Party Wear</option>
+                                <option value="Corporate Event">Corporate Event</option>
+                                <option value="Casual Wear">Casual Wear</option>
+                                <option value="Festival Wear">Festival Wear</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="color">COLOR THEME</label>
+                            <input type="text" id="color" name="colorTheme" placeholder="Midnight Blue, Neon Pink, etc." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="delivery">DESIRED DELIVERY DATE</label>
+                            <input type="date" id="delivery" name="deliveryDate" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="about">TELL US MORE ABOUT YOUR DREAM OUTFIT</label>
+                            <textarea id="about" name="tellUsAbout" placeholder="Describe the style, fit, and any inspirations..." required></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <button type="submit" class="btn-submit" id="submitBtn">Submit Consultation Request</button>
+                            <div class="form-message" id="formMessage"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="reviews-container">
+            <div class="reviews-header">
+                <h2>Loved By <span class="highlight">Influencers</span></h2>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div>
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="review-text">"I wanted something unique for my brand collaboration shoot, and they designed exactly what I imagined — maybe even better."</p>
+                    </div>
+                    <div class="review-author">
+                        <div class="review-author-title">— FASHION INFLUENCER</div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="review-text">"The fitting was absolutely perfect. I've never worn a custom outfit that felt this comfortable and luxurious."</p>
+                    </div>
+                    <div class="review-author">
+                        <div class="review-author-title">— CONTENT CREATOR</div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="review-text">"The attention to detail, fabric quality, and finishing were incredible."</p>
+                    </div>
+                    <div class="review-author">
+                        <div class="review-author-title">— BRIDE-TO-BE</div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <div class="review-stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <p class="review-text">"They don't just stitch outfits — they understand your personality and create designs that truly represent you."</p>
+                    </div>
+                    <div class="review-author">
+                        <div class="review-author-title">— LIFESTYLE BLOGGER</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+            </div>
+
+            <div class="faq-items">
+                <div class="faq-item active">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Do you create completely custom designs?</h3>
+                        <svg class="faq-icon" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23a098b0' stroke-width='1.5'><path d='M1 1l5 5 5-5'/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, every design is created from scratch based on your vision, preferences, and body type.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How long does it take?</h3>
+                        <svg class="faq-icon" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23a098b0' stroke-width='1.5'><path d='M1 1l5 5 5-5'/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The typical timeline is 4-8 weeks, depending on the complexity of the design and current workload.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Do you offer virtual consultations?</h3>
+                        <svg class="faq-icon" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23a098b0' stroke-width='1.5'><path d='M1 1l5 5 5-5'/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We offer virtual styling sessions via Zoom or WhatsApp for clients worldwide.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What if my measurements change?</h3>
+                        <svg class="faq-icon" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23a098b0' stroke-width='1.5'><path d='M1 1l5 5 5-5'/></svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We can make adjustments during the fitting process before final delivery to ensure the perfect fit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">AURELLE COUTURE</div>
+                <p>Custom-crafted fashion designed to make every woman feel confident, elegant, and unforgettable. Handcrafted in our Neo-Tokyo inspired atelier.</p>
+                <div class="footer-social">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='18' viewBox='0 0 24 24' fill='none' stroke='%23a098b0' stroke-width='2'%3E%3Cpath d='M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7'/%3E%3C/svg%3E" alt="Twitter">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='20' viewBox='0 0 24 24' fill='none' stroke='%23a098b0' stroke-width='2'%3E%3Cpath d='M18 2h-3a6 6 0 00-6 6v4a6 6 0 006 6h3m0-13v-4m0 13v4'/%3E%3C/svg%3E" alt="Pinterest">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a098b0' stroke-width='2'%3E%3Crect x='2' y='2' width='20' height='20' rx='5' ry='5'/%3E%3Cpath d='M16 11.37A4 4 0 1112.63 8'/%3E%3C/svg%3E" alt="Instagram">
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h3>EXPLORE</h3>
+                    <a href="#home">Home</a>
+                    <a href="#custom">Custom Designs</a>
+                    <a href="#accessories">Accessories</a>
+                    <a href="#reviews">Reviews</a>
+                </div>
+                <div class="footer-col">
+                    <h3>SUPPORT</h3>
+                    <a href="#faq">FAQs</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#sustainability">Sustainability</a>
+                    <a href="#legal">Legal</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>THE FINAL TOUCH</h3>
+                <p>Ready to wear something made just for you?</p>
+                <button class="footer-cta" onclick="document.getElementById('form-section').scrollIntoView({behavior: 'smooth'})">Book Your Consultation Today</button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copyright">© 2024 AURELLE COUTURE. HANDCRAFTED IN NEO-TOKYO.</div>
+            <div class="footer-bottom-links">
+                <a href="#privacy">Privacy</a>
+                <a href="#boutiques">Boutiques</a>
+                <a href="#press">Press</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzE7cuZTdmfU-e8e9iRnvFEL4yLwZjJqf3A4L6V2hgGSr5nj6dwG5XFqS7pwSPmFDpG/exec';
+
+        function submitForm(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const occasionType = document.getElementById('occasion').value;
+            const colorTheme = document.getElementById('color').value;
+            const deliveryDate = document.getElementById('delivery').value;
+            const tellUsAbout = document.getElementById('about').value;
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+
+            // Validate fields
+            if (!name || !email || !phone || !occasionType || !colorTheme || !deliveryDate || !tellUsAbout) {
+                formMessage.className = 'form-message error';
+                formMessage.textContent = '✗ Please fill in all fields.';
+                return;
+            }
+
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            // Build URL with query parameters
+            const url = SCRIPT_URL + '?' + new URLSearchParams({
+                name: name,
+                email: email,
+                phone: phone,
+                occasionType: occasionType,
+                colorTheme: colorTheme,
+                deliveryDate: deliveryDate,
+                tellUsAbout: tellUsAbout
+            });
+
+            // Fetch with GET method, no-cors mode
+            fetch(url, {
+                method: 'GET',
+                mode: 'no-cors'
+            })
+            .then(() => {
+                // On success (regardless of actual response due to no-cors)
+                showSuccess(formMessage, submitBtn);
+            })
+            .catch(() => {
+                // On error
+                showError(formMessage, submitBtn);
+            });
+        }
+
+        function showSuccess(formMessage, submitBtn) {
+            formMessage.className = 'form-message success';
+            formMessage.textContent = '✓ Success! We\'ve received your consultation request. We\'ll contact you within 24 hours!';
+            
+            // Reset form
+            document.getElementById('designForm').reset();
+            
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Consultation Request';
+
+            // Hide message after 6 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 6000);
+        }
+
+        function showError(formMessage, submitBtn) {
+            formMessage.className = 'form-message error';
+            formMessage.textContent = '✗ Something went wrong. Please try again.';
+            
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Consultation Request';
+        }
+
+        function toggleFAQ(element) {
+            const faqItem = element.closest('.faq-item');
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Toggle current FAQ
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
